@@ -1,0 +1,784 @@
+/* === ELEGANT & POLISHED CSS === */
+
+:root {
+    --primary-dark: #0D2441;
+    --primary-accent: #3A7DFF;
+    --light-bg: #F7F9FC;
+    --white: #FFFFFF;
+    --text-dark: #1E293B;
+    --text-light: #64748B;
+    --border-color: #E2E8F0;
+    
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.07);
+    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    
+    --border-radius-sm: 8px;
+    --border-radius-md: 12px;
+}
+
+/* -- Grunnstillingar -- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--white);
+    color: var(--text-dark);
+    line-height: 1.7;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* -- Leturgerðir -- */
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--primary-dark);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+h1 {
+    font-size: clamp(2.8rem, 5.5vw, 4rem);
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+    font-size: clamp(2.2rem, 4.5vw, 3rem);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.35rem;
+    margin-bottom: 1rem;
+}
+
+p {
+    margin-bottom: 1.5rem;
+    color: var(--text-light);
+    max-width: 620px;
+}
+
+.section-intro {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+.section-intro p {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+section {
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* -- Haus (Header) & Valmynd (Navigation) -- */
+header {
+    padding: 1.5rem 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.75rem;
+    color: var(--primary-dark);
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style-type: none;
+    display: flex;
+    gap: 3rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 8px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary-accent);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-accent);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    z-index: 1001;
+}
+
+.hamburger .bar {
+    display: block;
+    width: 28px;
+    height: 3px;
+    margin: 6px auto;
+    transition: all 0.3s ease-in-out;
+    background-color: var(--primary-dark);
+    border-radius: 2px;
+}
+
+/* -- Hnappar -- */
+.button {
+    display: inline-block;
+    background: var(--primary-accent);
+    color: var(--white);
+    padding: 16px 32px;
+    text-decoration: none;
+    border-radius: var(--border-radius-sm);
+    font-weight: 600;
+    font-family: var(--font-heading);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: var(--shadow-sm);
+    border: 2px solid transparent;
+}
+
+.button:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.button-secondary {
+    background: var(--white);
+    color: var(--primary-accent);
+    border: 2px solid var(--border-color);
+}
+
+.button-secondary:hover {
+    border-color: var(--primary-accent);
+}
+
+/* -- Aðalhluti (Hero Section) -- */
+.hero-section {
+    padding: 80px 0;
+    background: linear-gradient(180deg, var(--white) 0%, var(--light-bg) 100%);
+}
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 4rem;
+}
+.hero-text {
+    text-align: left;
+}
+.hero-text p {
+    font-size: 1.15rem;
+    color: var(--text-light);
+}
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-start;
+    margin-top: 2.5rem;
+}
+.hero-image img {
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-lg);
+}
+
+/* -- Um Okkur kafli -- */
+.about-section {
+    background-color: var(--white);
+}
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+}
+.about-text h2 {
+    text-align: left;
+}
+.about-text p {
+    max-width: none;
+}
+.about-image img {
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-md);
+}
+
+/* -- Þjónustukafli -- */
+.services-section {
+    background-color: var(--light-bg);
+}
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+.service-card {
+    background: var(--white);
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+}
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-md);
+}
+.service-icon {
+    margin-bottom: 1.5rem;
+    color: var(--primary-accent);
+}
+
+/* -- Verðskrá (Pricing Section) -- */
+.pricing-section {
+    background-color: var(--white);
+}
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    align-items: center;
+}
+.pricing-card {
+    background-color: var(--light-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    padding: 2.5rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.pricing-card:hover {
+     transform: translateY(-10px);
+     box-shadow: var(--shadow-md);
+}
+.pricing-card.recommended {
+    transform: scale(1.05);
+    background-color: var(--white);
+    border: 2px solid var(--primary-accent);
+    box-shadow: var(--shadow-md);
+}
+.pricing-card.recommended:hover {
+     transform: scale(1.08) translateY(-10px);
+}
+.pricing-card .price {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin: 1.5rem 0;
+}
+.pricing-card p {
+    font-size: 1rem;
+    min-height: 80px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* -- Call to Action (CTA) -- */
+.cta-section {
+    background-color: var(--primary-dark);
+    color: var(--white);
+    text-align: center;
+    padding: 100px 24px;
+}
+.cta-section h2, .cta-section p {
+    color: var(--white);
+    margin-left: auto;
+    margin-right: auto;
+}
+.cta-section .button {
+    margin-top: 1.5rem;
+}
+
+/* -- Nýr Fótur (New Footer) -- */
+footer {
+    background-color: var(--primary-dark);
+    padding: 3rem 0;
+}
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+.footer-copyright {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    margin: 0;
+}
+.footer-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+}
+.footer-nav a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.9);
+    transition: color 0.3s ease;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+.footer-nav a:hover {
+    color: var(--white);
+}
+
+/* -- Skalanleiki (Responsive Design) -- */
+@media (max-width: 992px) {
+    .nav-links {
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100%;
+        gap: 0;
+        flex-direction: column;
+        justify-content: center;
+        background-color: var(--white);
+        width: 100%;
+        text-align: center;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+    }
+    .nav-links.active {
+        transform: translateX(0);
+    }
+    .nav-links li {
+        padding: 1rem 0;
+    }
+    .nav-links a {
+        font-size: 1.5rem;
+    }
+    .hamburger {
+        display: block;
+    }
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+    
+    .hero-grid, .about-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .hero-text, .about-text {
+        text-align: center;
+    }
+    .hero-buttons {
+        justify-content: center;
+    }
+    .about-image {
+        order: -1;
+        max-width: 500px;
+        margin: 0 auto 3rem auto;
+    }
+    .about-text h2 {
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .pricing-card.recommended {
+        transform: scale(1);
+    }
+    .footer-container {
+        flex-direction: column-reverse; /* Nav links on top */
+        gap: 2rem;
+    }
+}
+
+/* === STÍLAR FYRIR UNDIRSÍÐUR (bæta við neðst í styles.css) === */
+
+/* -- Breadcrumb -- */
+.breadcrumb-nav {
+    padding: 1rem 0;
+    background-color: var(--light-bg);
+    border-bottom: 1px solid var(--border-color);
+}
+.breadcrumb-nav ol {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.9rem;
+}
+.breadcrumb-nav li + li::before {
+    content: '›';
+    margin: 0 0.75rem;
+    color: var(--text-light);
+}
+.breadcrumb-nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+.breadcrumb-nav a:hover {
+    color: var(--primary-accent);
+}
+.breadcrumb-nav [aria-current="page"] {
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+/* -- Síðuhaus -- */
+.page-hero {
+    text-align: center;
+    padding: 80px 0;
+    background-color: var(--white);
+}
+.page-hero h1 {
+    color: var(--primary-dark);
+}
+.page-hero p {
+    font-size: 1.15rem;
+    color: var(--text-light);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* -- Upplýsingar um pakka -- */
+.package-details-section {
+    padding: 80px 0;
+    background-color: var(--white);
+}
+.package-details-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+    align-items: flex-start;
+}
+.features-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 2rem;
+}
+.features-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    font-size: 1.05rem;
+}
+.features-list svg {
+    color: var(--primary-accent);
+    flex-shrink: 0; /* Kemur í veg fyrir að ikóninn minnki */
+    margin-top: 4px;
+}
+
+.summary-box {
+    background-color: var(--light-bg);
+    padding: 2.5rem;
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--border-color);
+    position: sticky; /* Lætur boxið fylgja á stærri skjám */
+    top: 120px; /* Hæð á header + smá bil */
+}
+.summary-box h3 {
+    margin-top: 0;
+}
+.summary-box .button {
+    width: 100%;
+    text-align: center;
+    margin-top: 1.5rem;
+}
+.package-price {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+.package-price h4 {
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+.package-price span {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+}
+
+/* -- Skalanleiki fyrir pakka síður -- */
+@media (max-width: 992px) {
+    .package-details-grid {
+        grid-template-columns: 1fr;
+    }
+    .summary-box {
+        position: static; /* Fjarlægir sticky á minni skjám */
+        margin-top: 3rem;
+    }
+}
+
+/* === AF HVERJU VEFSMIÐJAN? (WHY US SECTION) === */
+
+.why-us-section {
+    background-color: var(--white);
+}
+
+.why-us-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.feature-card {
+    background: var(--light-bg);
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--border-color);
+    padding: 2.5rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-md);
+}
+
+.feature-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    color: var(--primary-accent);
+    background-color: var(--white);
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    box-shadow: var(--shadow-sm);
+}
+
+.feature-card h3 {
+    margin-bottom: 1rem;
+}
+
+.feature-card p {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+}
+
+/* === ALGENGAR SPURNINGAR (FAQ) - Með mjúkri hreyfingu === */
+.faq-section {
+    background-color: var(--light-bg);
+}
+
+.faq-accordion {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-accordion details {
+    background: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    margin-bottom: 1rem;
+    overflow: hidden; /* Mikilvægt fyrir hreyfinguna */
+}
+
+.faq-accordion summary {
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-family: var(--font-heading);
+    padding: 1.5rem;
+    cursor: pointer;
+    list-style: none; /* Felur sjálfgefna ör */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: margin 0.2s ease-out;
+}
+
+.faq-accordion summary::-webkit-details-marker {
+    display: none; /* Felur sjálfgefna ör í Safari */
+}
+
+.faq-accordion details[open] summary {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.faq-accordion summary::after {
+    content: '+';
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--primary-accent);
+    transition: transform 0.3s ease-out;
+    transform: rotate(0deg);
+}
+
+.faq-accordion details[open] summary::after {
+    transform: rotate(45deg);
+}
+
+.faq-content {
+    padding: 0 1.5rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding-top 0.4s ease-out, padding-bottom 0.4s ease-out;
+}
+
+.faq-accordion details[open] .faq-content {
+    max-height: 20rem; /* Hækka ef efnið er lengra */
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.faq-content p {
+    margin-bottom: 0;
+    max-width: none;
+}
+
+
+/* === HAFÐU SAMBAND (CONTACT FORM) === */
+.contact-section {
+    background-color: var(--primary-dark);
+}
+
+.contact-section .section-intro h2,
+.contact-section .section-intro p {
+    color: var(--white);
+}
+
+.contact-section .section-intro a {
+    color: var(--primary-accent);
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.contact-section .section-intro a:hover {
+    border-color: var(--primary-accent);
+}
+
+.contact-form {
+    max-width: 800px;
+    margin: 2rem auto 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.contact-form label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--border-radius-sm);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--white);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-accent);
+    box-shadow: 0 0 0 3px rgba(58, 125, 255, 0.3);
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form .button {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--primary-accent);
+    color: var(--white);
+}
+
+@media (max-width: 600px) {
+    .contact-form {
+        grid-template-columns: 1fr;
+    }
+}
