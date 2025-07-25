@@ -115,40 +115,9 @@
         </div>
     </footer>
     
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-     // AOS (Animate on Scroll) Initialization
-AOS.init({
-    duration: 800,
-    once: true,
-    offset: 50,
-});
-
-// Mobile Navigation (Hamburger Menu)
-const hamburger = document.querySelector(".hamburger");
-const navLinks = document.querySelector(".nav-links");
-const logo = document.querySelector(".logo");
-
-hamburger.addEventListener("click", () => {
-    hamburger.classList.toggle("active");
-    navLinks.classList.toggle("active");
-    // Bætir við/fjarlægir class á body til að koma í veg fyrir skrun
-    document.body.classList.toggle("nav-open");
-    // Breyta lit á lógói til að sjást á dökkum bakgrunni
-    logo.style.color = navLinks.classList.contains("active") ? 'var(--white)' : 'var(--primary-dark)';
-});
-
-// Loka valmynd þegar smellt er á hlekk
-document.querySelectorAll(".nav-links a").forEach(link => {
-    link.addEventListener("click", () => {
-        hamburger.classList.remove("active");
-        navLinks.classList.remove("active");
-        document.body.classList.remove("nav-open");
-        logo.style.color = 'var(--primary-dark)';
-    });
-});
-
-    </script>
+  <!-- JAVASCRIPT -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="app.js"></script> <!-- NÝJA LÍNAN -->
 
 </body>
 </html>
