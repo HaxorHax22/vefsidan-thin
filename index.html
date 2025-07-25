@@ -334,43 +334,94 @@
             </div>
         </section>
 
-        <section id="contact" class="contact-section">
-            <div class="container" data-aos="fade-up">
-                <div class="section-intro">
-                    <h2>Hefjum samtal</h2>
-                    <p>Fylltu út formið hér að neðan eða sendu okkur póst beint á <a href="mailto:hallo@vefsmidjan.is">hallo@vefsmidjan.is</a>. Við svörum eins fljótt og auðið er.</p>
+        <section id="contact" class="contact-section premium">
+            <div class="container">
+                <div class="contact-grid">
+                    <!-- Left Column: Info -->
+                    <div class="contact-info" data-aos="fade-right">
+                        <div class="section-intro elegant">
+                             <div class="title-with-accent">
+                                <h2>Hefjum Samtal</h2>
+                                <span class="accent-line"></span>
+                            </div>
+                            <p>Við erum ávallt tilbúnir að heyra frá metnaðarfullum fyrirtækjum. Sendu okkur línu og við finnum bestu lausnina fyrir þig.</p>
+                        </div>
+                        <div class="contact-details elegant">
+                            <div class="contact-item">
+                                <div class="contact-text">
+                                    <h4>Sendu okkur póst</h4>
+                                    <a href="mailto:hanneshelgi@vefsmidjan.is">hanneshelgi@vefsmidjan.is</a>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                               <div class="contact-text">
+                                    <h4>Svar innan 24 tíma</h4>
+                                    <p>Við svörum öllum fyrirspurnum eins fljótt og auðið er.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Right Column: Form -->
+                    <div class="contact-form-wrapper" data-aos="fade-left" data-aos-delay="100">
+                        <form action="#" method="POST" class="contact-form premium">
+                            <div class="form-group">
+                                <label for="name">Nafn</label>
+                                <input type="text" id="name" name="name" required placeholder="Þitt fulla nafn">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Tölvupóstur</label>
+                                <input type="email" id="email" name="email" required placeholder="netfang@fyrirtæki.is">
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="message">Skilaboð</label>
+                                <textarea id="message" name="message" rows="5" required placeholder="Hvernig getum við aðstoðað?"></textarea>
+                            </div>
+                            <div class="full-width">
+                                <button type="submit" class="button-cta premium">
+                                     <span>Senda Skilaboð</span>
+                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <form action="#" method="POST" class="contact-form" data-aos="fade-up" data-aos-delay="100">
-                    <div class="form-group">
-                        <label for="name">Nafn</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Tölvupóstur</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group full-width">
-                        <label for="message">Skilaboð</label>
-                        <textarea id="message" name="message" rows="6" required></textarea>
-                    </div>
-                    <div class="full-width">
-                        <button type="submit" class="button">Senda skilaboð</button>
-                    </div>
-                </form>
             </div>
         </section>
     </main>
     
     <footer>
-        <div class="container footer-container">
-            <p class="footer-copyright">&copy; 2025 Vefsmidjan.is</p>
-            <nav class="footer-nav">
-                <ul>
-                    <li><a href="#about">Um okkur</a></li>
-                    <li><a href="#services">Þjónusta</a></li>
-                    <li><a href="#pricing">Verðskrá</a></li>
-                </ul>
-            </nav>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo">
+                        <img src="img/vefsmidjan_logo3.png" alt="Vefsmiðjan logo">
+                    </a>
+                    <p class="footer-tagline">
+                        Við smíðum vandaðar veflausnir sem hjálpa íslenskum fyrirtækjum að vaxa og ná árangri á netinu.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <h3>Flýtileiðir</h3>
+                    <ul>
+                        <li><a href="index.html#about">Um okkur</a></li>
+                        <li><a href="index.html#services">Þjónusta</a></li>
+                        <li><a href="index.html#contact">Hafðu samband</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Hafðu samband</h3>
+                    <ul>
+                        <li><a href="mailto:hanneshelgi@vefsmidjan.is">hanneshelgi@vefsmidjan.is</a></li>
+                        <li><a href="mailto:stefan@vefsmidjan.is">stefan@vefsmidjan.is</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">&copy; 2025 Vefsmidjan.is - Allur réttur áskilinn.</p>
+            </div>
         </div>
     </footer>
      <!-- JAVASCRIPT -->

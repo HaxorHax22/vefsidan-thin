@@ -30,6 +30,7 @@
 
 html {
     scroll-behavior: smooth;
+    height: 100%;
 }
 
 body {
@@ -40,6 +41,9 @@ body {
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
 }
 
 body.nav-open {
@@ -137,7 +141,7 @@ body.nav-open {
 }
 
 .logo img {
-    height: 80px; /* Hæðin stillt á 220px */
+    height: 80px; /* Hæðin stillt á 40px */
     width: auto;  /* Breiddin aðlagast sjálfkrafa */
     display: block;
     transition: filter 0.3s ease;
@@ -235,9 +239,12 @@ body.nav-open {
 
 /* -- AÐALHLUTI (HERO SECTION) MEÐ KEN BURNS ÁHRIFUM -- */
 .hero-section {
-    padding: 100px 0;
-    position: relative; /* Mikilvægt fyrir bakgrunninn */
-    overflow: hidden; /* Kemur í veg fyrir að myndin fari út fyrir */
+    height: 100vh; /* Fyllir út í hæð skjásins */
+    min-height: 700px; /* Lágmarkshæð fyrir minni skjái */
+    display: flex;
+    align-items: center; /* Miðjusetur innihald lóðrétt */
+    position: relative;
+    overflow: hidden;
     text-align: left;
 }
 
@@ -1184,12 +1191,89 @@ body.nav-open {
 .contact-form .button { width: 100%; padding: 1rem; }
 
 /* -- Fótur (Footer) -- */
-footer { background-color: var(--primary-dark); padding: 3rem 0; }
-.footer-container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
-.footer-copyright { color: rgba(255, 255, 255, 0.7); font-size: 0.9rem; margin: 0; }
-.footer-nav ul { list-style: none; display: flex; gap: 2rem; margin: 0; }
-.footer-nav a { text-decoration: none; color: rgba(255, 255, 255, 0.9); transition: color 0.3s ease; font-size: 0.9rem; font-weight: 500; }
-.footer-nav a:hover { color: var(--white); }
+footer {
+    background: #0D2441;
+    color: #E2E8F0;
+    padding: 80px 0 0;
+    margin-top: auto; /* Pushes footer to the bottom */
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 4rem;
+    padding-bottom: 60px;
+}
+
+.footer-brand .footer-logo {
+    display: block;
+    max-width: 200px;
+    margin-bottom: 1.5rem;
+}
+
+.footer-brand .footer-logo img {
+    filter: brightness(0) invert(1); /* Makes logo white */
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.footer-brand .footer-logo:hover img {
+    opacity: 1;
+}
+
+.footer-tagline {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #94A3B8;
+    max-width: 350px;
+}
+
+.footer-links h3,
+.footer-contact h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #F8FAFC;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.5px;
+}
+
+.footer-links ul,
+.footer-contact ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li,
+.footer-contact li {
+    margin-bottom: 1rem;
+}
+
+.footer-links a,
+.footer-contact a {
+    color: #94A3B8;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+}
+
+.footer-links a:hover,
+.footer-contact a:hover {
+    color: var(--primary-accent);
+    transform: translateX(4px);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 30px 0;
+    text-align: center;
+}
+
+.footer-copyright {
+    font-size: 0.9rem;
+    color: #94A3B8;
+    margin: 0;
+}
 
 /* -- Undirsíður -- */
 .breadcrumb-nav { padding: 1rem 0; background-color: var(--light-bg); border-bottom: 1px solid var(--border-color); }
@@ -3109,5 +3193,91 @@ footer { background-color: var(--primary-dark); padding: 3rem 0; }
     color: var(--text-light);
     line-height: 1.6;
     margin: 0;
+}
+
+/* === PREMIUM CONTACT SECTION === */
+
+.contact-section.premium {
+    background: #0D2441; /* Rich dark blue */
+    color: #A9B9D0; /* Softer light text color */
+}
+
+.contact-grid {
+    gap: 4rem;
+    align-items: center;
+}
+
+.contact-info .section-intro h2 {
+    font-size: 2.5rem; /* Slightly smaller for elegance */
+}
+
+.contact-info .section-intro p {
+    color: #A9B9D0;
+}
+
+/* Vertical Divider on Desktop */
+.contact-form-wrapper {
+    position: relative;
+    padding-left: 4rem; 
+}
+
+.contact-form-wrapper::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10%;
+    bottom: 10%;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.1), transparent);
+}
+
+/* Refined Form Card */
+.contact-form-wrapper {
+    background: #102B4C; /* Slightly lighter card */
+    padding: 3.5rem 4rem;
+    border-radius: 8px; /* Sharper corners */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+/* Elegant Form Inputs */
+.contact-form.premium input,
+.contact-form.premium textarea {
+    background-color: #0D2441; /* Darker inputs */
+    border-color: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    padding: 1rem 1.25rem;
+    border-radius: 6px;
+}
+
+.contact-form.premium input::placeholder,
+.contact-form.premium textarea::placeholder {
+    color: #6B7A90;
+}
+
+.contact-form.premium input:focus,
+.contact-form.premium textarea:focus {
+    background-color: #0D2441;
+    border-color: var(--primary-accent);
+    box-shadow: 0 0 0 2px rgba(242, 122, 36, 0.2);
+}
+
+/* Sleek CTA Button */
+.contact-form.premium .button-cta.premium {
+    background: var(--primary-accent);
+    color: var(--white);
+    border-radius: 6px;
+}
+
+.contact-form.premium .button-cta.premium:hover {
+    background: #FF8A3D;
+    box-shadow: 0 10px 25px rgba(242, 122, 36, 0.25);
+    transform: translateY(-2px);
+}
+
+.contact-details.elegant .contact-text a,
+.contact-details.elegant .contact-text a:visited {
+    font-size: 1.1rem;
+    color: #A9B9D0; /* Light gray for details, ensuring visited link is also light */
 }
 
