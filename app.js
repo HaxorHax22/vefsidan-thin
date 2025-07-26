@@ -54,7 +54,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
             
             let isOpaque = window.scrollY > scrollOffset;
 
-            if (contactRect && contactRect.top <= header.offsetHeight) {
+            // Verður aðeins gegnsær á tölvuskjám (ekki mobile)
+            if (contactRect && contactRect.top <= header.offsetHeight && window.innerWidth > 992) {
                 isOpaque = false;
             }
 
