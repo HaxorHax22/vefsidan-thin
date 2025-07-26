@@ -34,13 +34,25 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     // Gegnsær haus á forsíðu sem verður sýnilegur við skrun
     const header = document.querySelector('header');
+    const contactSection = document.querySelector('#contact'); // Ná í "Hefjum Samtal" hlutann
     const isTransparentOnLoad = document.body.classList.contains('header-transparent-on-load');
 
     if (isTransparentOnLoad && header) {
         const scrollOffset = 50; // Hversu langt þarf að skruna áður en hausinn birtist
 
         const handleScroll = () => {
-            if (window.scrollY > scrollOffset) {
+            const contactRect = contactSection ? contactSection.getBoundingClientRect() : null;
+            const headerHeight = header.offsetHeight;
+
+            // Sjálfgefin hegðun: hausinn verður ógegnsær eftir smá skrun
+            let isScrolled = window.scrollY > scrollOffset;
+
+            // Einfölduð undantekning: Ef komið er að "Hefjum samtal" hlutanum, verður hausinn gegnsær
+            if (contactRect && contactRect.top <= headerHeight) {
+                isScrolled = false;
+            }
+
+            if (isScrolled) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
