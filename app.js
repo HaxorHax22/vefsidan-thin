@@ -18,8 +18,8 @@ hamburger.addEventListener('click', () => {
     body.classList.toggle('nav-open');
 });
 
-// Initialize Vanilla Tilt.js for pricing cards and portfolio logos
 document.addEventListener('DOMContentLoaded', (event) => {
+    // Initialize Vanilla Tilt.js for pricing cards and portfolio logos
     const tiltElements = document.querySelectorAll('.pricing-card.enhanced, .portfolio-logo-item');
     if (tiltElements.length > 0) {
         VanillaTilt.init(tiltElements, {
@@ -31,6 +31,83 @@ document.addEventListener('DOMContentLoaded', (event) => {
             scale: 1.02
         });
     }
+
+    // Gegnsær haus á forsíðu sem verður sýnilegur við skrun
+    const header = document.querySelector('header');
+    const isHomePage = document.body.classList.contains('home');
+
+    if (isHomePage && header) {
+        const scrollOffset = 50; // Hversu langt þarf að skruna áður en hausinn birtist
+
+        const handleScroll = () => {
+            if (window.scrollY > scrollOffset) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        handleScroll(); // Keyra í byrjun til að stilla rétt ástand
+    }
+    
+    // Create floating particles
+    function createParticles() {
+        const particlesContainer = document.getElementById('particles');
+        if (!particlesContainer) return;
+        
+        const particleCount = window.innerWidth > 768 ? 8 : 4; // Fewer on mobile
+
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 12 + 's';
+            particle.style.animationDuration = (Math.random() * 8 + 8) + 's';
+            particlesContainer.appendChild(particle);
+        }
+    }
+
+    // A more performant mouse parallax effect (desktop only)
+    if (window.innerWidth > 992) {
+        const professionalSection = document.querySelector('.why-us-section');
+        if (professionalSection) {
+            let mouseX = 0;
+            let mouseY = 0;
+            let isTicking = false;
+
+            const update = () => {
+                const cards = professionalSection.querySelectorAll('.professional-card');
+                const x = (mouseX / window.innerWidth - 0.5) * 2;
+                const y = (mouseY / window.innerHeight - 0.5) * 2;
+
+                cards.forEach((card, index) => {
+                    const speed = (index + 1) * 2;
+                    const xOffset = x * speed;
+                    const yOffset = y * speed;
+                    card.style.setProperty('--x', `${xOffset}px`);
+                    card.style.setProperty('--y', `${yOffset}px`);
+                });
+                isTicking = false;
+            };
+
+            const requestTick = () => {
+                if (!isTicking) {
+                    requestAnimationFrame(update);
+                    isTicking = true;
+                }
+            };
+            
+            professionalSection.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                requestTick();
+            });
+        }
+    }
+
+    // Initialize particles
+    createParticles();
 });
 
 
@@ -70,91 +147,5 @@ document.querySelectorAll('.faq-accordion details').forEach((detail) => {
                 isAnimating = false;
             }, 400);
         }
-    });
-});
-
-
-// Premium Why-Us Section Enhancements
-document.addEventListener('DOMContentLoaded', function() {
-    // Create floating particles
-    function createParticles() {
-        const particlesContainer = document.getElementById('particles');
-        if (!particlesContainer) return;
-        
-        const particleCount = window.innerWidth > 768 ? 8 : 4; // Fewer on mobile
-
-        for (let i = 0; i < particleCount; i++) {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.animationDelay = Math.random() * 12 + 's';
-            particle.style.animationDuration = (Math.random() * 8 + 8) + 's';
-            particlesContainer.appendChild(particle);
-        }
-    }
-
-    // A more performant mouse parallax effect (desktop only)
-    if (window.innerWidth > 992) {
-        const professionalCards = document.querySelector('.why-us-section.professional');
-        if (professionalCards) {
-            let mouseX = 0;
-            let mouseY = 0;
-            let isTicking = false;
-
-            const update = () => {
-                const cards = professionalCards.querySelectorAll('.professional-card');
-                const x = (mouseX / window.innerWidth - 0.5) * 2;
-                const y = (mouseY / window.innerHeight - 0.5) * 2;
-
-                cards.forEach((card, index) => {
-                    const speed = (index + 1) * 2;
-                    const xOffset = x * speed;
-                    const yOffset = y * speed;
-                    card.style.setProperty('--x', `${xOffset}px`);
-                    card.style.setProperty('--y', `${yOffset}px`);
-                });
-                isTicking = false;
-            };
-
-            const requestTick = () => {
-                if (!isTicking) {
-                    requestAnimationFrame(update);
-                    isTicking = true;
-                }
-            };
-            
-            document.addEventListener('mousemove', (e) => {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-                requestTick();
-            });
-        }
-    }
-
-    // Initialize particles
-    createParticles();
-
-    // Intersection Observer for scroll animations
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-
-    // Observe cards for animations
-    const cards = document.querySelectorAll('.professional-card');
-    cards.forEach((card, index) => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
-        observer.observe(card);
     });
 });
