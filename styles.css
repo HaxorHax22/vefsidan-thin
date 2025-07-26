@@ -452,10 +452,44 @@ body.nav-open {
     position: relative;
 }
 
+/* Nýtt, fágaðra útlit fyrir "Markmið" */
+.about-mission.modern {
+    background: transparent;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.mission-icon-modern {
+    flex-shrink: 0;
+    color: var(--primary-accent);
+}
+.mission-icon-modern svg {
+    width: 36px;
+    height: 36px;
+}
+
+.mission-content-modern h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+    color: var(--primary-dark);
+}
+.mission-content-modern p {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--text-light);
+    max-width: none;
+}
+
 .about-mission h3 {
     color: var(--primary-dark);
     margin-bottom: 1.5rem;
     font-size: 1.3rem;
+    font-weight: 700;
+    flex-shrink: 0;
 }
 
 .mission-content {
@@ -525,6 +559,25 @@ body.nav-open {
     font-size: 0.7rem;
     font-weight: 700;
     flex-shrink: 0;
+}
+
+/* Nýir, fágaðri traustvísar */
+.trust-indicators.modern {
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+    gap: 2rem;
+    justify-content: center; /* Miðjusetja textann */
+}
+
+.trust-item.modern {
+    gap: 0; /* Ekkert bil þar sem táknmyndin var */
+    font-weight: 500;
+}
+
+.trust-item.modern svg {
+    width: 20px;
+    height: 20px;
+    color: var(--primary-accent);
 }
 
 /* Enhanced image styling */
@@ -4037,5 +4090,19 @@ footer {
 
 .portfolio-logo-item:hover img {
     opacity: 1;
+}
+
+/* Nýr, beinn og faglegur myndarammi */
+.image-frame.modern {
+    transform: rotate(0);
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15);
+    border: 1px solid var(--border-color);
+}
+.image-frame.modern:hover {
+    transform: translateY(-5px) scale(1.02);
+}
+
+.image-frame:hover {
+    transform: rotate(0deg) scale(1.02);
 }
 
