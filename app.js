@@ -18,9 +18,9 @@ hamburger.addEventListener('click', () => {
     body.classList.toggle('nav-open');
 });
 
-// Initialize Vanilla Tilt.js for pricing cards
+// Initialize Vanilla Tilt.js for pricing cards and portfolio logos
 document.addEventListener('DOMContentLoaded', (event) => {
-    const tiltElements = document.querySelectorAll('.pricing-card.enhanced');
+    const tiltElements = document.querySelectorAll('.pricing-card.enhanced, .portfolio-logo-item');
     if (tiltElements.length > 0) {
         VanillaTilt.init(tiltElements, {
             max: 8,
@@ -93,21 +93,42 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Subtle mouse parallax effect (desktop only)
+    // A more performant mouse parallax effect (desktop only)
     if (window.innerWidth > 992) {
-        document.addEventListener('mousemove', (e) => {
-            const cards = document.querySelectorAll('.professional-card');
-            const mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
-            const mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+        const professionalCards = document.querySelector('.why-us-section.professional');
+        if (professionalCards) {
+            let mouseX = 0;
+            let mouseY = 0;
+            let isTicking = false;
 
-            cards.forEach((card, index) => {
-                const speed = (index + 1) * 0.3;
-                const x = mouseX * speed;
-                const y = mouseY * speed;
-                
-                card.style.transform += ` translate3d(${x}px, ${y}px, 0)`;
+            const update = () => {
+                const cards = professionalCards.querySelectorAll('.professional-card');
+                const x = (mouseX / window.innerWidth - 0.5) * 2;
+                const y = (mouseY / window.innerHeight - 0.5) * 2;
+
+                cards.forEach((card, index) => {
+                    const speed = (index + 1) * 2;
+                    const xOffset = x * speed;
+                    const yOffset = y * speed;
+                    card.style.setProperty('--x', `${xOffset}px`);
+                    card.style.setProperty('--y', `${yOffset}px`);
+                });
+                isTicking = false;
+            };
+
+            const requestTick = () => {
+                if (!isTicking) {
+                    requestAnimationFrame(update);
+                    isTicking = true;
+                }
+            };
+            
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                requestTick();
             });
-        });
+        }
     }
 
     // Initialize particles

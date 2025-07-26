@@ -3960,3 +3960,49 @@ footer {
     max-width: 900px;
 }
 
+/* === DÆMI UM VERK (PORTFOLIO SECTION) - NÝTT LOGO GRID === */
+.portfolio-section {
+    background-color: var(--light-bg);
+    padding: 100px 0;
+}
+
+.portfolio-logo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4rem;
+}
+
+.portfolio-logo-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem;
+    background-color: var(--white);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    aspect-ratio: 1.6 / 1;
+}
+
+.portfolio-logo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.8;
+    transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.portfolio-logo-item:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-md);
+}
+
+.portfolio-logo-item:hover img {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
