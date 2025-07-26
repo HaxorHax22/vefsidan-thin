@@ -38,29 +38,35 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const isTransparentOnLoad = document.body.classList.contains('header-transparent-on-load');
 
     if (isTransparentOnLoad && header) {
-        const scrollOffset = 50; // Hversu langt þarf að skruna áður en hausinn birtist
+        const scrollOffset = 50;
 
         const handleScroll = () => {
-            const contactRect = contactSection ? contactSection.getBoundingClientRect() : null;
-            const headerHeight = header.offsetHeight;
-
-            // Sjálfgefin hegðun: hausinn verður ógegnsær eftir smá skrun
-            let isScrolled = window.scrollY > scrollOffset;
-
-            // Einfölduð undantekning: Ef komið er að "Hefjum samtal" hlutanum, verður hausinn gegnsær
-            if (contactRect && contactRect.top <= headerHeight) {
-                isScrolled = false;
+            // Stjórna staðsetningu (alltaf fixed eftir smá skrun)
+            if (window.scrollY > 10) {
+                header.classList.add('fixed-position');
+            } else {
+                header.classList.remove('fixed-position');
             }
 
-            if (isScrolled) {
-                header.classList.add('scrolled');
+            // Stjórna útliti (gegnsætt eða ógegnsætt)
+            const contactSection = document.querySelector('#contact');
+            const contactRect = contactSection ? contactSection.getBoundingClientRect() : null;
+            
+            let isOpaque = window.scrollY > scrollOffset;
+
+            if (contactRect && contactRect.top <= header.offsetHeight) {
+                isOpaque = false;
+            }
+
+            if (isOpaque) {
+                header.classList.add('opaque-background');
             } else {
-                header.classList.remove('scrolled');
+                header.classList.remove('opaque-background');
             }
         };
 
         window.addEventListener('scroll', handleScroll);
-        handleScroll(); // Keyra í byrjun til að stilla rétt ástand
+        handleScroll();
     }
     
     // Create floating particles

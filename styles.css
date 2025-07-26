@@ -125,42 +125,51 @@ img {
     display: block;
 }
 
-/* === HAUS (HEADER) - LAGFÆRING === */
+/* === HAUS (HEADER) - LAGAÐ MEÐ NÝRRI AÐFERÐ === */
 header {
     padding: 20px 0;
-    background-color: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
-    position: sticky;
+    position: absolute; /* Byrjar absolute til að leyfa hero að vera undir */
     top: 0;
+    width: 100%;
     z-index: 1000;
-    border-bottom: 1px solid var(--border-color);
     transition: background-color 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease;
 }
 
-/* Gegnsær haus á forsíðu */
-body.header-transparent-on-load header {
+/* Breytir í fixed þegar skrunað er af stað */
+header.fixed-position {
+    position: fixed;
+}
+
+/* Sjálfgefið útlit (Gegnsætt) */
+header {
     background-color: transparent;
     border-color: transparent;
     backdrop-filter: none;
 }
-
-body.header-transparent-on-load header.scrolled {
-    background-color: rgba(255, 255, 255, 0.8);
-    border-color: var(--border-color);
-    backdrop-filter: blur(10px);
-}
-
-/* Stílar fyrir texta og lógó á gegnsæjum haus */
-body.header-transparent-on-load header:not(.scrolled) .nav-links a {
+header .nav-links a {
     color: var(--white);
 }
-
-body.header-transparent-on-load header:not(.scrolled) .hamburger .bar {
+header .hamburger .bar {
     background-color: var(--white);
 }
-
-body.header-transparent-on-load header:not(.scrolled) .logo img {
+header .logo img {
     filter: brightness(0) invert(1);
+}
+
+/* Útlit þegar bakgrunnur er sýnilegur */
+header.opaque-background {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-bottom: 1px solid var(--border-color);
+    backdrop-filter: blur(10px);
+}
+header.opaque-background .nav-links a {
+    color: var(--text-dark);
+}
+header.opaque-background .hamburger .bar {
+    background-color: var(--primary-dark);
+}
+header.opaque-background .logo img {
+    filter: none;
 }
 
 /* Prevent body scroll when mobile nav is open */
@@ -1238,7 +1247,7 @@ body.nav-open {
 footer {
     background: #0D2441;
     color: #E2E8F0;
-    padding: 80px 0 0;
+    padding: 40px 0 0; /* Minni padding efst */
     margin-top: auto; /* Pushes footer to the bottom */
 }
 
@@ -3886,7 +3895,7 @@ footer {
 
 .contact-section-home {
     position: relative;
-    padding: 100px 0;
+    padding: 70px 0 22px 0; /* Meira bil fyrir ofan, minna fyrir neðan */
     background-image: url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=3600');
     background-size: cover;
     background-position: center;
