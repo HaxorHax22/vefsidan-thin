@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="is">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hafðu samband - Vefsmiðjan</title>
+    <meta name="description" content="Hafðu samband við Vefsmiðjuna til að ræða þitt næsta vefverkefni. Við bjóðum upp á ráðgjöf og gerum þér tilboð án skuldbindingar.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <a href="index.html" class="logo">
+                    <img src="img/vefsmidjan_logo3.png" alt="Vefsmiðjan lógó">
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html#about">Um okkur</a></li>
+                    <li><a href="thjonusta.html">Þjónusta</a></li>
+                    <li><a href="index.html#services">Verðskrá</a></li>
+                    <li><a href="hafa_samband.html" class="active">Hafðu samband</a></li>
+                </ul>
+                <button class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="contact-hero-section">
+            <div class="contact-hero-background"></div>
+            <div class="container">
+                <div class="contact-hero-content" data-aos="fade-up">
+                    <h1>Byrjum samtalið</h1>
+                    <p>Frá hugmynd að fullsmíðuðum vef. Segðu okkur frá þínum markmiðum og við gerum þau að veruleika.</p>
+                </div>
+
+                <div class="contact-card-wrapper" data-aos="fade-up" data-aos-delay="200">
+                    <!-- Vinstri dálkur: Upplýsingar -->
+                    <div class="contact-info-dark">
+                        <h3>Hafðu samband beint</h3>
+                        <p>Fyrirspurnir, tilboð eða almennar spurningar.</p>
+                        <ul class="contact-details-list">
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="currentColor"><rect x="4" y="4" width="16" height="16" rx="2"/></svg>
+                                <a href="mailto:hanneshelgi@vefsmidjan.is">hanneshelgi@vefsmidjan.is</a>
+                            </li>
+                             <li>
+                                <svg viewBox="0 0 24 24" fill="currentColor"><rect x="4" y="4" width="16" height="16" rx="2"/></svg>
+                                <a href="mailto:stefan@vefsmidjan.is">stefan@vefsmidjan.is</a>
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                                <span>+354 123 4567</span>
+                            </li>
+                        </ul>
+                         <div class="working-hours">
+                            <h4>Opnunartími</h4>
+                            <p>Mánudaga – Föstudaga: 09:00 – 17:00</p>
+                        </div>
+                        <div class="map-placeholder">
+                           <iframe 
+                                src="https://maps.google.com/maps?q=H%C3%A1sk%C3%B3linn%20%C3%AD%20Reykjav%C3%ADk&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                                width="100%" 
+                                height="100%" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                           </iframe>
+                        </div>
+                    </div>
+
+                    <!-- Hægri dálkur: Form -->
+                    <div class="contact-form-light">
+                        <h3>Sendu okkur línu</h3>
+                        <p>Við svörum eins fljótt og hægt er.</p>
+                        <form action="#" method="POST" class="contact-page-form modern">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">Nafn *</label>
+                                    <input type="text" id="name" name="name" required placeholder="Jón Jónsson">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Netfang *</label>
+                                    <input type="email" id="email" name="email" required placeholder="jon@fyrirtaeki.is">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Efni (valfrjálst)</label>
+                                <input type="text" id="subject" name="subject" placeholder="Varðandi vefsíðu fyrir fyrirtækið þitt">
+                            </div>
+                            <div class="form-group">
+                                <label>Hvað hefur þú áhuga á?</label>
+                                <div class="checkbox-grid">
+                                    <div class="checkbox-wrapper">
+                                        <input type="checkbox" id="grunnpakki-contact" name="interest" value="grunnpakki">
+                                        <label for="grunnpakki-contact">Grunnpakki</label>
+                                    </div>
+                                    <div class="checkbox-wrapper">
+                                        <input type="checkbox" id="midpakki-contact" name="interest" value="midpakki">
+                                        <label for="midpakki-contact">Miðpakki</label>
+                                    </div>
+                                    <div class="checkbox-wrapper">
+                                        <input type="checkbox" id="serlausn-contact" name="interest" value="serlausn">
+                                        <label for="serlausn-contact">Sérlausn</label>
+                                    </div>
+                                    <div class="checkbox-wrapper">
+                                        <input type="checkbox" id="fyrirspurn-contact" name="interest" value="fyrirspurn">
+                                        <label for="fyrirspurn-contact">Almenn fyrirspurn</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="button-cta accent">
+                                    <span>Senda skilaboð</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo">
+                        <img src="img/vefsmidjan_logo3.png" alt="Vefsmiðjan logo">
+                    </a>
+                    <p class="footer-tagline">
+                        Við smíðum vandaðar veflausnir sem hjálpa íslenskum fyrirtækjum að vaxa og ná árangri á netinu.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <h3>Flýtileiðir</h3>
+                    <ul>
+                        <li><a href="index.html#about">Um okkur</a></li>
+                        <li><a href="thjonusta.html">Þjónusta</a></li>
+                        <li><a href="hafa_samband.html">Hafðu samband</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Hafðu samband</h3>
+                    <ul>
+                        <li><a href="mailto:hanneshelgi@vefsmidjan.is">hanneshelgi@vefsmidjan.is</a></li>
+                        <li><a href="mailto:stefan@vefsmidjan.is">stefan@vefsmidjan.is</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">&copy; 2025 Vefsmidjan.is - Allur réttur áskilinn.</p>
+            </div>
+        </div>
+    </footer>
+     <!-- JAVASCRIPT -->
+     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+     <script src="app.js"></script>
+     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const selectedPackage = params.get('pakki');
+
+            if (selectedPackage) {
+                const checkboxId = `${selectedPackage}-contact`;
+                const checkbox = document.getElementById(checkboxId);
+                if (checkbox) {
+                    checkbox.checked = true;
+                }
+            }
+        });
+     </script>
+ 
+ </body>
+ </html>

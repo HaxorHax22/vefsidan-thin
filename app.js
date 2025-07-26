@@ -1,30 +1,38 @@
-// AOS (Animate on Scroll) Initialization
+// Initialize AOS (Animate on Scroll)
 AOS.init({
     duration: 800,
     once: true,
     offset: 50,
 });
 
-// Mobile Navigation (Hamburger Menu)
-const hamburger = document.querySelector(".hamburger");
-const navLinks = document.querySelector(".nav-links");
-const logo = document.querySelector(".logo");
+// Mobile navigation toggle
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+const logo = document.querySelector('.logo');
+const body = document.body;
 
-hamburger.addEventListener("click", () => {
-    hamburger.classList.toggle("active");
-    navLinks.classList.toggle("active");
-    document.body.classList.toggle("nav-open");
-    logo.classList.toggle("is-active");
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('active');
+    logo.classList.toggle('is-active');
+    body.classList.toggle('nav-open');
 });
 
-document.querySelectorAll(".nav-links a").forEach(link => {
-    link.addEventListener("click", () => {
-        hamburger.classList.remove("active");
-        navLinks.classList.remove("active");
-        document.body.classList.remove("nav-open");
-        logo.classList.remove("is-active");
-    });
+// Initialize Vanilla Tilt.js for pricing cards
+document.addEventListener('DOMContentLoaded', (event) => {
+    const tiltElements = document.querySelectorAll('.pricing-card.enhanced');
+    if (tiltElements.length > 0) {
+        VanillaTilt.init(tiltElements, {
+            max: 8,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.2,
+            perspective: 1000,
+            scale: 1.02
+        });
+    }
 });
+
 
 // MJÚK HREYFING FYRIR FAQ FLIPA
 document.querySelectorAll('.faq-accordion details').forEach((detail) => {
