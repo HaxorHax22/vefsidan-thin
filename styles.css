@@ -31,6 +31,7 @@
 html {
     scroll-behavior: smooth;
     height: 100%;
+    overflow-x: hidden;
 }
 
 body {
@@ -44,7 +45,6 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100%;
-    overflow-x: hidden;
 }
 
 .body-with-bg {
@@ -1961,6 +1961,17 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        text-align: center;
+    }
+
+    .footer-brand .footer-logo,
+    .footer-tagline {
+        margin: 0 auto 1rem auto;
+    }
+    
     .footer-container {
         flex-direction: column-reverse;
         gap: 2rem;
