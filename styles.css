@@ -3991,9 +3991,7 @@ footer {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    filter: grayscale(100%);
-    opacity: 0.8;
-    transition: filter 0.3s ease, opacity 0.3s ease;
+    transition: opacity 0.3s ease;
 }
 
 .portfolio-logo-item:hover {
@@ -4002,7 +4000,6 @@ footer {
 }
 
 .portfolio-logo-item:hover img {
-    filter: grayscale(0%);
     opacity: 1;
 }
 
