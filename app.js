@@ -34,9 +34,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     // Gegnsær haus á forsíðu sem verður sýnilegur við skrun
     const header = document.querySelector('header');
-    const isHomePage = document.body.classList.contains('home');
+    const isTransparentOnLoad = document.body.classList.contains('header-transparent-on-load');
 
-    if (isHomePage && header) {
+    if (isTransparentOnLoad && header) {
         const scrollOffset = 50; // Hversu langt þarf að skruna áður en hausinn birtist
 
         const handleScroll = () => {
