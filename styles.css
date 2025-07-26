@@ -125,50 +125,70 @@ img {
     display: block;
 }
 
-/* === HAUS (HEADER) - LAGAÐ MEÐ NÝRRI AÐFERÐ === */
+/* === HAUS (HEADER) - ENDANLEG LÖGNUN === */
+
+/* Sjálfgefið útlit (ógegnsætt, fyrir flestar síður eins og pökkusíður) */
 header {
     padding: 20px 0;
-    position: absolute; /* Byrjar absolute til að leyfa hero að vera undir */
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    position: sticky; /* Alltaf sticky á venjulegum síðum */
     top: 0;
-    width: 100%;
     z-index: 1000;
+    border-bottom: 1px solid var(--border-color);
     transition: background-color 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease;
 }
-
-/* Breytir í fixed þegar skrunað er af stað */
-header.fixed-position {
-    position: fixed;
+header .nav-links a {
+    color: var(--text-dark);
+}
+header .hamburger .bar {
+    background-color: var(--primary-dark);
+}
+header .logo img {
+    filter: none;
 }
 
-/* Sjálfgefið útlit (Gegnsætt) */
-header {
+/* -- Sérstakar reglur fyrir síður með gegnsæjan haus -- */
+
+/* Upphafsstaða (YFIRSKRIFAR SJÁLFGEFNAR REGLUR) */
+body.header-transparent-on-load header {
+    position: absolute; /* Byrjar absolute til að vera yfir hero */
+    width: 100%;
+    left: 0;
     background-color: transparent;
     border-color: transparent;
     backdrop-filter: none;
 }
-header .nav-links a {
+body.header-transparent-on-load header .nav-links a {
     color: var(--white);
 }
-header .hamburger .bar {
+body.header-transparent-on-load header .hamburger .bar {
     background-color: var(--white);
 }
-header .logo img {
+body.header-transparent-on-load header .logo img {
     filter: brightness(0) invert(1);
 }
 
-/* Útlit þegar bakgrunnur er sýnilegur */
-header.opaque-background {
+/* Verður fixed þegar skrunað er */
+body.header-transparent-on-load header.fixed-position {
+    position: fixed;
+    width: 100%;
+    left: 0;
+}
+
+/* Verður ógegnsær þegar skrunað er */
+body.header-transparent-on-load header.opaque-background {
     background-color: rgba(255, 255, 255, 0.8);
     border-bottom: 1px solid var(--border-color);
     backdrop-filter: blur(10px);
 }
-header.opaque-background .nav-links a {
+body.header-transparent-on-load header.opaque-background .nav-links a {
     color: var(--text-dark);
 }
-header.opaque-background .hamburger .bar {
+body.header-transparent-on-load header.opaque-background .hamburger .bar {
     background-color: var(--primary-dark);
 }
-header.opaque-background .logo img {
+body.header-transparent-on-load header.opaque-background .logo img {
     filter: none;
 }
 
@@ -376,6 +396,7 @@ body.nav-open {
     background: linear-gradient(135deg, var(--light-bg) 0%, #FAFBFC 100%);
     position: relative;
     overflow: hidden;
+    padding-bottom: 40px; /* Minnkað bil að neðan */
 }
 
 /* Background decoration */
