@@ -2403,6 +2403,12 @@ footer {
     box-shadow: 0 8px 30px rgba(13, 36, 65, 0.06), 0 2px 8px rgba(13, 36, 65, 0.04);
     cursor: pointer;
     overflow: hidden;
+    will-change: transform;
+    transform: translate(var(--x, 0), var(--y, 0));
+}
+
+.professional-card-inner {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 /* Hover glow effect */
@@ -2424,12 +2430,15 @@ footer {
 }
 
 .professional-card:hover {
-    transform: translateY(-12px) scale(1.02);
     border-color: rgba(242, 122, 36, 0.2);
     box-shadow: 
         0 20px 60px rgba(13, 36, 65, 0.12), 
         0 8px 20px rgba(242, 122, 36, 0.15),
         inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.professional-card:hover .professional-card-inner {
+    transform: translateY(-12px) scale(1.02);
 }
 
 /* Enhanced Icons */
@@ -2655,7 +2664,7 @@ footer {
     }
     
     .professional-card:hover {
-        transform: translateY(-6px) scale(1.01);
+        transform: translate(var(--x, 0), -6px) scale(1.01);
     }
     
     .icon-background {
