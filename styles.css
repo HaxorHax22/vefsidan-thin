@@ -3974,6 +3974,7 @@ footer {
     background-size: cover;
     background-position: center;
     z-index: 1;
+    transform: translateZ(0); /* Lagar rendering hikst */
 }
 
 .contact-section-home::after {
