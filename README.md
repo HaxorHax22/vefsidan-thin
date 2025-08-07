@@ -1,10 +1,10 @@
-# Vefsmiðjan - Faglegar Veflausnir
+# Vefstæðið - Faglegar Veflausnir
 
-A modern, professional website for Vefsmiðjan (The Web Workshop), an Icelandic web development company.
+A modern, professional website for Vefstæðið (The Web Workshop), an Icelandic web development company.
 
 ## About
 
-Vefsmiðjan specializes in creating fast and modern websites that strengthen your business image and attract new customers. This website showcases our services and pricing packages.
+Vefstæðið specializes in creating fast and modern websites that strengthen your business image and attract new customers. This website showcases our services and pricing packages.
 
 ## Features
 
@@ -44,4 +44,4 @@ For web development services, please visit our contact page or reach out directl
 
 ---
 
-© 2024 Vefsmiðjan. All rights reserved. 
+© 2024 Vefstæðið. All rights reserved. 

@@ -1084,7 +1084,7 @@ body.nav-open {
 
 .pricing-card.enhanced:hover {
     transform: translateY(-8px);
-    box-shadow: var(--shadow-md);
+     box-shadow: var(--shadow-md);
 }
 
 /* Popular Badge for Recommended Card */
